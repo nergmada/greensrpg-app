@@ -35,11 +35,12 @@
 		"tailwindcss": "^3.2.0",
 		"tslib": "^2.3.1",
 		"typescript": "^4.7.4",
-		"vite": "^3.1.0"
+		"vite": "^4.0.0"
 	},
 	"type": "module",
 	"dependencies": {
 		"@svelte-parts/editor": "^0.0.26",
+		"@sveltejs/adapter-node": "^1.0.0",
 		"@types/lodash": "^4.14.186",
 		"axios": "^1.2.1",
 		"codemirror": "^6.0.1",
@@ -52,5 +53,9 @@
 		"markdown-it": "^13.0.1",
 		"markdown-it-custom-block": "^0.1.2",
 		"socket.io-client": "^4.5.4"
+	},
+	"engines": {
+		"node": ">=16.4.x",
+		"npm": ">=6.0.0"
 	}
 }
