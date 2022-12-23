@@ -12,11 +12,11 @@
 
 {#if show && data.length > 0}
     <div class="flex items-center justify-center w-screen h-screen absolute top-0 left-0 bg-black/50 overflow-hidden">
-        <div class="flex justify-between w-full">
+        <div class="flex justify-between w-full pointer-events-auto">
             <button 
                 disabled={current === 0}
                 on:click={() => current = current - 1} 
-                class="text-white disabled:text-gray-500 enabled:hover:scale-125 z-40"
+                class="text-white disabled:text-gray-500 enabled:hover:scale-125"
             >
                 <ChevronLeft classes="w-12 h-12" />
             </button>
@@ -24,7 +24,7 @@
             <button
                 disabled={current === data.length - 1} 
                 on:click={() => current = current + 1} 
-                class="text-white disabled:text-gray-500 enabled:hover:scale-125 z-40"
+                class="text-white disabled:text-gray-500 enabled:hover:scale-125"
             >
                 <ChevronRight classes="w-12 h-12" />
             </button>
