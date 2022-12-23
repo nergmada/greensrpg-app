@@ -19,7 +19,7 @@ if (browser) {
 			if (socket) {
 				socket.close();
 			}
-			socket = io(PUBLIC_CMS_URL, {
+			socket = io('wss://greensrpg.com', {
 				path: '/cms/socket.io/',
 				transports: ['websocket']
 			});
