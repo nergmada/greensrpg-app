@@ -47,6 +47,6 @@
         body: data.description
     }} />
 {/if}
-<div class="z-30">
+<div class="z-50">
     <ImageOverlay data={data.images} bind:show={showImages} />
 </div>

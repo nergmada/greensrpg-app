@@ -11,7 +11,7 @@
 
 
 {#if show && data.length > 0}
-    <div class="flex items-center justify-center w-screen h-screen absolute top-0 left-0 bg-black/50 overflow-hidden">
+    <div class="flex items-center justify-center w-screen h-screen absolute top-0 left-0 overflow-hidden pointer-events-none">
         <div class="flex justify-between w-full pointer-events-auto">
             <button 
                 disabled={current === 0}
