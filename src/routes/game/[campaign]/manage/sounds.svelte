@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Button from "$common/button.svelte";
+	import { playEffect } from "$lib/data/game";
 	export let sound_effects: CMSImageData[];
 </script>
 
@@ -7,7 +8,7 @@
     <div class="max-w-6xl flex flex-wrap pointer-events-auto max-h-[70vh] overflow-y-auto px-2">
         {#each sound_effects as effect}
             <div class="basis-1/3">
-                <Button>
+                <Button on:click={() => playEffect(effect.id)}>
                     <h2>{effect.name}</h2>
                 </Button>
             </div>

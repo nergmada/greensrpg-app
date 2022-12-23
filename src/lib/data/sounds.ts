@@ -1,7 +1,7 @@
 import { browser } from '$app/environment';
 import { Howl } from 'howler';
-import { derived, type Readable } from 'svelte/store';
-import { gameData } from './game';
+import { derived, get, type Readable } from 'svelte/store';
+import { gameData, socket } from './game';
 
 const playlist: Readable<Playlist | null> = derived(gameData, (game) => {
 	if (game) {
@@ -11,10 +11,22 @@ const playlist: Readable<Playlist | null> = derived(gameData, (game) => {
 });
 
 let current_track: Howl | null = null;
+let effect: Howl | null = null;
+
 if (browser) {
 	playlist.subscribe((v) => {
 		if (current_track) current_track.stop();
 		if (!v) return;
+		socket?.on('play_effect', (id) => {
+			console.log(`Now playing ${id}`);
+			const se = v.sound_effects.find((e) => e.id == id);
+			if (se)
+				effect = new Howl({
+					src: se.url,
+					autoplay: true,
+					volume: 0.2
+				});
+		});
 		const tracks = v.tracks.map((t) => t.url);
 		let current = 0;
 		const playNext = () => {
@@ -22,7 +34,7 @@ if (browser) {
 				src: tracks[current],
 				html5: true,
 				autoplay: true,
-				volume: 0.01,
+				volume: 0.1,
 				onend: playNext
 			});
 			current = (current + 1) % tracks.length;

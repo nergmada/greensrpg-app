@@ -10,7 +10,7 @@ export const player_id: Writable<string | null> = writable(null);
 
 export const diceResult: Writable<string | null> = writable(null);
 
-let socket: Socket | null = null;
+export let socket: Socket | null = null;
 
 if (browser) {
 	player_id.set(Cookies.get('player_id') || null);
@@ -81,4 +81,9 @@ export const giveDice = (id: string) => {
 export const rollDice = () => {
 	console.log(`Rolling dice`);
 	socket?.emit('roll_dice');
+};
+
+export const playEffect = (id: string) => {
+	console.log(`Playing effect ${id}`);
+	socket?.emit('play_effect', id);
 };

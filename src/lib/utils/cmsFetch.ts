@@ -13,11 +13,10 @@ export async function get<T extends GetEndpoint>(
 		(prev, k) => prev.replace(`{${k}}`, substitutes[k]),
 		endpoint
 	);
-	const url = new URL(subEndpoint, PUBLIC_CMS_URL);
-	url.search = query;
-	console.log(url.toString());
+	const url = `${PUBLIC_CMS_URL}${subEndpoint}`;
+	console.log(url);
 	try {
-		const { data } = await axios.get(url.toString());
+		const { data } = await axios.get(url);
 		return data;
 	} catch (err) {
 		// errors.update((v) => [...v, err]);
