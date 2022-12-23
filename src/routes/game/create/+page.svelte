@@ -1,7 +1,7 @@
 <script lang="ts">
     import ChevronRight from '$common/icons/chevron_right.svelte';
-import Sheet from '$components/Player/Sheet.svelte';
     import type { PageData } from './$types';
+    import { post } from '$lib/utils/cmsPost';
 
     export let data: PageData;
 </script>
@@ -17,7 +17,9 @@ import Sheet from '$components/Player/Sheet.svelte';
                         <h2>{campaign.name}</h2>
                         <p>{campaign.description.slice(0, 200)}</p>
                     </div>
-                    <button>
+                    <button on:click={() => post('/api/game/{id}', '', {
+                        id: campaign.id
+                    }).then(r => r ? window.location.href = `/game/${r.id}/manage` : null)}>
                         <ChevronRight />
                     </button>
                 </div>
