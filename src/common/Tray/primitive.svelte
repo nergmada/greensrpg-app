@@ -13,6 +13,7 @@
 <div
     class:!bg-transparent={noOverlay}
     class:pointer-events-none={noOverlay}
+    class:pointer-events-auto={!noOverlay}
     on:click 
     class="
         fixed 
@@ -24,8 +25,7 @@
         left-0 
         flex 
         justify-center 
-        items-end
-        pointer-events-auto"
+        items-end"
 >
     <div 
         class:pointer-events-auto={noOverlay}

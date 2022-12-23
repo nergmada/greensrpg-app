@@ -11,7 +11,7 @@
 
 
 {#if show && data.length > 0}
-    <div class="flex items-center justify-center w-screen h-screen absolute top-0 left-0 overflow-hidden pointer-events-none">
+    <div class="flex items-center justify-center w-screen h-screen bg-black/50 absolute top-0 left-0 overflow-hidden">
         <div class="flex justify-between w-full pointer-events-auto">
             <button 
                 disabled={current === 0}
@@ -32,7 +32,7 @@
     </div>
     <Primitive noOverlay={true} on:click={() => show = false}>
         <div class="py-2">
-            <h3 class="mb-2">{data[current].alt}</h3>
+            <h3 class="mb-2">{data[current].alt || 'Image'}</h3>
             <Renderer content={data[current].caption} />
         </div>
     </Primitive>
