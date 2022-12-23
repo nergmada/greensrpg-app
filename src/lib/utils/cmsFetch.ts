@@ -13,7 +13,9 @@ export async function get<T extends GetEndpoint>(
 	);
 	const url = `${PUBLIC_CMS_URL}${subEndpoint}`;
 	try {
-		const { data } = await axios.get(url);
+		const { data } = await axios.get(url, {
+			headers: { 'Accept-Encoding': 'gzip,deflate,compress' }
+		});
 		return data;
 	} catch (err) {
 		console.log(err);
