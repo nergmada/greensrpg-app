@@ -21,6 +21,7 @@ if (browser) {
 			}
 			socket = io('wss://greensrpg.com', {
 				path: '/cms/socket.io/',
+				autoConnect: false,
 				transports: ['websocket']
 			});
 			socket.on('get_game_room', () => socket?.emit('game_room', game.id));
@@ -31,6 +32,7 @@ if (browser) {
 				gameData.set(newGame);
 			});
 			socket.on('dice_result', (v) => diceResult.set(v));
+			socket.connect();
 		}
 	});
 }
