@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Red+Hat+Mono:wght@300;400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	@font-face {
+		font-family: 'Digital7';
+		src: url('/digital-7.ttf') format('truetype'), url('/digital-7.woff') format('woff');
+	}
+	body {
+		background: url('/bg_pattern.png');
+		background-repeat: repeat;
+		background-size: 400px 400px;
+	}
+	h1,
+	h2,
+	h3,
+	h4,
+	h5 {
+		font-family: 'Montserrat Alternates', sans-serif;
+	}
+	h1 {
+		@apply text-3xl;
+	}
+	h2 {
+		@apply text-2xl;
+	}
+	h3 {
+		@apply text-xl;
+	}
+	body {
+		@apply bg-primary;
+		font-family: 'Red Hat Mono', monospace;
+	}
+	.md > p,
+	.md > h1,
+	.md > h2,
+	.md > h3 {
+		@apply mb-3;
+	}
+	.md > h1,
+	.md > h2,
+	.md > h3 {
+		@apply w-full;
+		@apply border-b-2;
+		@apply pb-2;
+		@apply border-b-gray-600;
+	}
+	.md a {
+		@apply underline;
+	}
+
+	.md > ul > li::before {
+		@apply font-medium;
+		content: '> ';
+	}
+
+	.dice {
+		font-family: 'Digital7', monospace;
+	}
+
+	::-webkit-scrollbar {
+		width: 7px;
+	}
+	::-webkit-scrollbar-track {
+		border-radius: 3px;
+		@apply bg-accent;
+	}
+	.hostile::-webkit-scrollbar-track {
+		@apply bg-red-400;
+	}
+	.hostile::-webkit-scrollbar-thumb {
+		@apply bg-red-500;
+	}
+	::-webkit-scrollbar-thumb {
+		width: 5px;
+		border-radius: 3px;
+		@apply bg-secondary;
+	}
+	/* ::-webkit-scrollbar-button {
+        display: hidden;
+    } */
+	:root {
+		--color-primary: 107, 46, 165;
+		--color-secondary: 101, 182, 205;
+		--color-accent: 206, 164, 220;
+		--color-primary-head: 192, 192, 192;
+		--color-primary-body: 237, 237, 237;
+		--color-secondary-head: 64, 64, 64;
+		--color-secondary-body: 32, 32, 32;
+		--color-accent-head: 69, 69, 69;
+		--color-accent-body: 39, 39, 39;
+	}
+}
