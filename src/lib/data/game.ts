@@ -19,7 +19,9 @@ if (browser) {
 			if (socket) {
 				socket.close();
 			}
-			socket = io(PUBLIC_CMS_URL);
+			socket = io(PUBLIC_CMS_URL, {
+				path: '/cms'
+			});
 			socket.on('get_game_room', () => socket?.emit('game_room', game.id));
 			socket.emit('game_room', game.id);
 			socket.on('update', (newGame) => {
