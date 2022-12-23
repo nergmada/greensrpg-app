@@ -20,7 +20,7 @@ if (browser) {
 				socket.close();
 			}
 			socket = io(PUBLIC_CMS_URL, {
-				path: '/cms'
+				path: '/cms/socket.io/'
 			});
 			socket.on('get_game_room', () => socket?.emit('game_room', game.id));
 			socket.emit('game_room', game.id);
