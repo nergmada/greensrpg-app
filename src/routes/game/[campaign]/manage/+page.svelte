@@ -10,10 +10,13 @@
 	import Maps from './maps.svelte';
 	import Players from './players.svelte';
 
+    import { mute } from "$lib/data/sounds";
+	import Sounds from "./sounds.svelte";
+
     export let data: PageData;
     $gameData = data.game;
 
-    let tab : 'tree' | 'combatants' | 'players' | 'location' | 'maps' = 'tree';
+    let tab : 'tree' | 'combatants' | 'players' | 'location' | 'maps' | 'sounds' = 'tree';
     let tree : PlayGraphNode | null = null;
     let key = 0;
 </script>
@@ -34,6 +37,7 @@
             <Button on:click={() => tab = 'players'}>Players</Button>
             <Button on:click={() => tab = 'location'}>Location</Button>
             <Button on:click={() => tab = 'maps'}>Maps</Button>
+            <Button on:click={() => tab = 'sounds'}>Sounds</Button>
         </div>
         <div>
 
@@ -53,6 +57,8 @@
         <Players game={$gameData} />
     {:else if tab === 'maps'}
         <Maps game={$gameData} />
+    {:else if tab === 'sounds'}
+        <Sounds sound_effects={$gameData.campaign.playlist.sound_effects} />
     {/if}
 {:else}
     <h2>Could not load game</h2>

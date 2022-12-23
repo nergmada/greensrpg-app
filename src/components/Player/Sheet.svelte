@@ -26,7 +26,7 @@
         <div class="mb-2">
             <Abilities abilities={player.abilities} />
         </div>
-        <div>
+        <div class="max-h-[50vh] overflow-y-auto">
             <h3>Background</h3>
             <Renderer content={player.description} />
         </div>

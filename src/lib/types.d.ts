@@ -56,9 +56,11 @@ interface DescriptionData {
 }
 
 interface CMSImageData {
+	id: string;
 	url: string;
 	alt: string;
 	caption?: string;
+	name: string;
 }
 
 interface MapIconData {
@@ -122,6 +124,12 @@ interface Combatant {
 	armor: number;
 }
 
+interface Playlist {
+	name: string;
+	tracks: CMSImageData[];
+	sound_effects: CMSImageData[];
+}
+
 interface GameData {
 	id: string;
 	campaign: CampaignData;
@@ -138,6 +146,7 @@ interface CampaignData {
 	players: PlayerData[];
 	maps: MapData[];
 	combatants: Combatant[];
+	playlist: Playlist;
 }
 
 // Action to initiate.
