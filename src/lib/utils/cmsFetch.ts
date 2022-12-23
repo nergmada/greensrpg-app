@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { PUBLIC_CMS_URL } from '$env/static/public';
+import { browser } from '$app/environment';
 
 export async function get<T extends GetEndpoint>(
 	endpoint: T,
@@ -13,9 +14,12 @@ export async function get<T extends GetEndpoint>(
 	);
 	const url = `${PUBLIC_CMS_URL}${subEndpoint}`;
 	try {
-		const { data } = await axios.get(url, {
-			headers: { 'Accept-Encoding': 'gzip,deflate,compress' }
-		});
+		const config = browser
+			? {}
+			: {
+					headers: { 'Accept-Encoding': 'gzip,deflate,compress' }
+			  };
+		const { data } = await axios.get(url, config);
 		return data;
 	} catch (err) {
 		console.log(err);
