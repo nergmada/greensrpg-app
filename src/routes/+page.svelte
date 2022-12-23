@@ -10,7 +10,7 @@
         <p>Please enter a campaign code in the box below to begin. Your GM will give you a game code to join.</p>
         <Text bind:value={code} placeholder="Campaign Code" />
         <Button 
-            on:click={() => window.location.href = `/campaign/${code}`}
+            on:click={() => window.location.href = `/game/${code}/select`}
             state={code ? "" : "disabled"}
         >
             Join Campaign
