@@ -48,6 +48,7 @@
             flex
             flex-col
             overflow-hidden
+            z-40
             {classes}"
     >
         <div class="flex justify-center">
