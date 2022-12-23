@@ -43,8 +43,10 @@
 </div>
 {#if showDescription}
     <Tray on:click={() =>showDescription = false} description={{
-        title: data.name,
+        title: data.name || "Image",
         body: data.description
     }} />
 {/if}
-<ImageOverlay data={data.images} bind:show={showImages} />
+<div class="z-30">
+    <ImageOverlay data={data.images} bind:show={showImages} />
+</div>

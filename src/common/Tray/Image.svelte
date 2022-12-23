@@ -16,7 +16,7 @@
             <button 
                 disabled={current === 0}
                 on:click={() => current = current - 1} 
-                class="text-white disabled:text-gray-500 enabled:hover:scale-125"
+                class="text-white disabled:text-gray-500 enabled:hover:scale-125 z-40"
             >
                 <ChevronLeft classes="w-12 h-12" />
             </button>
@@ -24,7 +24,7 @@
             <button
                 disabled={current === data.length - 1} 
                 on:click={() => current = current + 1} 
-                class="text-white disabled:text-gray-500 enabled:hover:scale-125"
+                class="text-white disabled:text-gray-500 enabled:hover:scale-125 z-40"
             >
                 <ChevronRight classes="w-12 h-12" />
             </button>
